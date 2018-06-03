@@ -12,6 +12,7 @@ CitiesData.prototype.getData = function() {
 CitiesData.prototype.setCountryNames = function() {
   PubSub.subscribe('CountriesData:all-countries-loaded', (evt) => {
     cities.forEach((city) => {
+      //Create a new key-value pair with the full name of the country for each city from dataset
       city.fullCountryName = evt.detail[city.country].name;
     });
   });
