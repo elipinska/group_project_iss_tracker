@@ -3,7 +3,6 @@ const CountriesData = require('./models/countries_data.js');
 const MapView = require('./views/map_view.js');
 const CountrySelectView = require('./views/country_select_view.js');
 const CitiesInputView = require('./views/cities_input_view.js');
-const CountriesInputView = require('./views/countries_input_view.js');
 const CitySelectionFormView = require('./views/city_selection_form_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -17,12 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const countryDropdown = document.getElementById('country-dropdown');
     const countrySelectView = new CountrySelectView(countryDropdown);
     countrySelectView.bindEvents();
-
-
-    const countriesInputElement = document.querySelector('#countries-input');
-    const countriesInputView = new CountriesInputView(countriesInputElement);
-    countriesInputView.addOnKeyUpToCountriesInput();
-    countriesInputView.bindEvents();
 
     const citiesInputElement = document.querySelector('#cities-input');
     const citiesInputView = new CitiesInputView(citiesInputElement, mapView);

@@ -24,6 +24,10 @@ CitiesInputView.prototype.addOnKeyUpToCitiesInput = function() {
   this.container.addEventListener('keyup', (evt) => this.renderCitiesList(evt));
 };
 
+// CitiesInputView.prototype.sendFilteredCitiesDate = function() {
+//   this.CitiesData
+// }
+
 CitiesInputView.prototype.renderCitiesList = function (evt) {
   var input, filter, ul, li, a, i;
 
@@ -37,37 +41,33 @@ CitiesInputView.prototype.renderCitiesList = function (evt) {
       if (this.countryFilter === "All") {
         if (city.name.toUpperCase().indexOf(filter) === 0) {
           const newLi = document.createElement('li');
-          // const newA = document.createElement('a');
-          this.addMapMarkerListenerToListItem(city, newLi);
-          this.removeMapMarkerListenerToListItem(city, newLi);
-          this.addOnClickListenerToListItem(city, newLi);
           newLi.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
-          // newLi.appendChild(newA);
           ul.appendChild(newLi);
+          this.setAddMapMarkerListenerToListItem(city, newLi);
+          this.setRemoveMapMarkerListenerToListItem(city, newLi);
+          this.addOnClickListenerToListItem(city, newLi);
         };
       } else {
         if (this.countryFilter === city.country && city.name.toUpperCase().indexOf(filter) === 0) {
           const newLi = document.createElement('li');
-          // const newA = document.createElement('a');
-          this.addMapMarkerListenerToListItem(city, newLi);
-          this.removeMapMarkerListenerToListItem(city, newLi);
-          this.addOnClickListenerToListItem(city, newLi);
           newLi.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
-          // newLi.appendChild(newA);
           ul.appendChild(newLi);
+          this.setAddMapMarkerListenerToListItem(city, newLi);
+          this.setRemoveMapMarkerListenerToListItem(city, newLi);
+          this.addOnClickListenerToListItem(city, newLi);
         };
       };
     });
   }
 };
 
-CitiesInputView.prototype.addMapMarkerListenerToListItem = function(city, listElement) {
+CitiesInputView.prototype.setAddMapMarkerListenerToListItem = function(city, listElement) {
   listElement.addEventListener('mouseover', (evt) => {
   this.map.setMarker([city.lat, city.lng]);
   });
 };
 
-CitiesInputView.prototype.removeMapMarkerListenerToListItem = function(city, listElement) {
+CitiesInputView.prototype.setRemoveMapMarkerListenerToListItem = function(city, listElement) {
   listElement.addEventListener('mouseout', (evt) => {
   this.map.removeLastMarker();
   });
