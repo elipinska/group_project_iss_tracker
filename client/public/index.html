@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+  integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+  crossorigin=""/>
+  <meta charset="utf-8">
+  <title>Our experimental playground</title>
+  <script type="text/javascript" src="js/bundle.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <div id="mapid"></div>
+
+  <form id="city-selection-form" action="index.html" method="post">
+    <select id="country-dropdown">
+      <option selected>All</option>
+    </select>
+    <input type="text" id="countries-input" placeholder="Search for country...">
+    <ul id="countries-list">
+    </ul>
+
+    <input type="text" id="cities-input" placeholder="Search for city...">
+    <ul id="cities-list">
+    </ul>
+    <input type="submit" name="chosen-city">
+  </form>
+
+</body>
+</html>
