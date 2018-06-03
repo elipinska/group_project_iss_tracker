@@ -1,9 +1,8 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const CitiesInputView = function(container, map) {
+const CitiesInputView = function(container) {
   this.container = container;
   this.citiesData = null;
-  this.map = map;
   this.countryFilter = 'All';
 }
 

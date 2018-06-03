@@ -12,7 +12,6 @@ CountrySelectView.prototype.bindEvents = function () {
   });
 
   this.container.addEventListener('change', (evt) => {
-
     let countryCode = 'All';
 
     if (evt.target.value !== 'All') {
@@ -46,10 +45,14 @@ CountrySelectView.prototype.populateDropdown = function (citiesData) {
   });
 
   allCountries.forEach((country) => {
-    const newOption = document.createElement('option');
-    newOption.textContent = `${country.emoji} ${country.name}`;
-    this.container.appendChild(newOption);
+    this.createNewOptionElement(country);
   });
+};
+
+CountrySelectView.prototype.createNewOptionElement = function(country) {
+  const newOption = document.createElement('option');
+  newOption.textContent = `${country.emoji} ${country.name}`;
+  this.container.appendChild(newOption);
 };
 
 module.exports = CountrySelectView;

@@ -24,7 +24,9 @@ MapView.prototype.setMarker = function(coords) {
 }
 
 MapView.prototype.removeLastMarker = function() {
-this.leafletMap.removeLayer(this.markers.pop());
+  if (this.markers.length > 0) {
+    this.leafletMap.removeLayer(this.markers.pop());
+  }
 }
 
 MapView.prototype.bindEvents = function () {

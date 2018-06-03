@@ -1,6 +1,4 @@
 const CityView = require('./city_view.js')
-
-
 const PubSub = require('../helpers/pub_sub.js');
 
 const CityListView = function (container) {
@@ -19,15 +17,14 @@ CityListView.prototype.receiveData = function () {
 CityListView.prototype.createCityViews = function () {
   this.clearElement();
   this.cities.forEach((city) => {
-        const cityView = this.createCityView(city);
+        this.createCityView(city);
   });
 };
 
 CityListView.prototype.createCityView = function (city) {
   const cityView = new CityView(city);
   const cityLi = cityView.renderCity();
-  this.container.appendChild (cityLi);
-  return cityView;
+  this.container.appendChild(cityLi);
 };
 
 CityListView.prototype.clearElement = function() {

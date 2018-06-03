@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     countrySelectView.bindEvents();
 
     const citiesInputElement = document.querySelector('#cities-input');
-    const citiesInputView = new CitiesInputView(citiesInputElement, mapView);
+    const citiesInputView = new CitiesInputView(citiesInputElement);
     citiesInputView.addOnKeyUpToCitiesInput();
     citiesInputView.bindEvents();
 

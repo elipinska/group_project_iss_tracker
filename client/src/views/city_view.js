@@ -1,6 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-
 const CityView = function (city) {
   this.city = city;
 }
