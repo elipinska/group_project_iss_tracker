@@ -14,7 +14,6 @@ CitiesInputView.prototype.bindEvents = function () {
 };
 
 CitiesInputView.prototype.addOnKeyUpToCitiesInput = function() {
-  console.dir(this.container);
   this.container.addEventListener('keyup', (evt) => this.prepareCitiesFiltered(evt));
 };
 
