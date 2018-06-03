@@ -35,13 +35,13 @@ MapView.prototype.bindEvents = function () {
 };
 
 MapView.prototype.setListenerForCityMarkers = function() {
-  PubSub.subscribe('CityView:set-city-marker', (evt) => {
+  PubSub.subscribe('CityView:mouse-over-city', (evt) => {
     this.setMarker(evt.detail);
   });
 }
 
 MapView.prototype.setListenerForRemoveCityMarkers = function() {
-  PubSub.subscribe('Remove-city-marker', (evt) => {
+  PubSub.subscribe('Views:remove-city-marker', (evt) => {
     this.removeLastMarker();
   });
 }
