@@ -51,7 +51,7 @@ CountrySelectView.prototype.populateDropdown = function (citiesData) {
 
 CountrySelectView.prototype.createNewOptionElement = function(country) {
   const newOption = document.createElement('option');
-  newOption.textContent = `${country.emoji} ${country.name}`;
+  newOption.textContent = `${country.name} ${country.emoji}`;
   this.container.appendChild(newOption);
 };
 

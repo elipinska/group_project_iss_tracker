@@ -40,7 +40,7 @@ CityListView.prototype.setListenerForClosingList = function () {
 };
 
 CityListView.prototype.clearElement = function() {
-  PubSub.publish('Remove-city-marker', 'hello');
+  PubSub.publish('Remove-city-marker');
   this.container.innerHTML = '';
 }
 
