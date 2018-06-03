@@ -63,7 +63,7 @@ CitiesInputView.prototype.renderCitiesList = function (evt) {
 
 CitiesInputView.prototype.setAddMapMarkerListenerToListItem = function(city, listElement) {
   listElement.addEventListener('mouseover', (evt) => {
-  this.map.setMarker([city.lat, city.lng]);
+  this.map. setMarker([city.lat, city.lng]);
   });
 };
 
