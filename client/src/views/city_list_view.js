@@ -28,6 +28,7 @@ CityListView.prototype.createCityView = function (city) {
 };
 
 CityListView.prototype.clearElement = function() {
+  PubSub.publish('Remove-city-marker', 'hello');
   this.container.innerHTML = '';
 }
 

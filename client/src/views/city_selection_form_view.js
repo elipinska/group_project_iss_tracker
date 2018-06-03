@@ -4,7 +4,6 @@ const CitySelectionFormView = function(container) {
 
 CitySelectionFormView.prototype.bindEvents = function () {
   this.container.addEventListener('submit', (evt) => {
-    console.log(evt.target[2].value);
     evt.preventDefault();
   });
 };

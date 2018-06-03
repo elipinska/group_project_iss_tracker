@@ -23,7 +23,7 @@ CityView.prototype.setAddMapMarkerListenerToListItem = function(listElement) {
 
 CityView.prototype.setRemoveMapMarkerListenerToListItem = function(listElement) {
   listElement.addEventListener('mouseout', (evt) => {
-    PubSub.publish('CityView:remove-city-marker', 'hello');
+    PubSub.publish('Remove-city-marker', 'hello');
   });
 };
 

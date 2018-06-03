@@ -41,7 +41,7 @@ MapView.prototype.setListenerForCityMarkers = function() {
 }
 
 MapView.prototype.setListenerForRemoveCityMarkers = function() {
-  PubSub.subscribe('CityView:remove-city-marker', (evt) => {
+  PubSub.subscribe('Remove-city-marker', (evt) => {
     this.removeLastMarker();
   });
 }
