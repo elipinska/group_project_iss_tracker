@@ -21,12 +21,9 @@ CitiesInputView.prototype.bindEvents = function () {
 
 CitiesInputView.prototype.addOnKeyUpToCitiesInput = function() {
   console.dir(this.container);
-  this.container.addEventListener('keyup', (evt) => this.renderCitiesList(evt));
+  this.container.addEventListener('keyup', (evt) => this.prepareCitiesFiltered(evt));
 };
 
-// CitiesInputView.prototype.sendFilteredCitiesDate = function() {
-//   this.CitiesData
-// }
 
 CitiesInputView.prototype.renderCitiesList = function (evt) {
   var input, filter, ul, li, a, i;
@@ -38,7 +35,7 @@ CitiesInputView.prototype.renderCitiesList = function (evt) {
   ul.innerHTML = "";
   if (filter.length > 1 || (this.countryFilter !== 'All' && filter.length > 0)) {
     this.citiesData.forEach((city) => {
-      if (this.countryFilter === "All") {
+      if (this.countryFilter === 'All') {
         if (city.name.toUpperCase().indexOf(filter) === 0) {
           const newLi = document.createElement('li');
           newLi.textContent = `${city.name} (${this.countriesData[city.country].name}), longitude: ${city.lng}, latitude: ${city.lat}`;
@@ -63,13 +60,13 @@ CitiesInputView.prototype.renderCitiesList = function (evt) {
 
 CitiesInputView.prototype.setAddMapMarkerListenerToListItem = function(city, listElement) {
   listElement.addEventListener('mouseover', (evt) => {
-  this.map. setMarker([city.lat, city.lng]);
+    this.map. setMarker([city.lat, city.lng]);
   });
 };
 
 CitiesInputView.prototype.setRemoveMapMarkerListenerToListItem = function(city, listElement) {
   listElement.addEventListener('mouseout', (evt) => {
-  this.map.removeLastMarker();
+    this.map.removeLastMarker();
   });
 };
 
@@ -84,6 +81,28 @@ CitiesInputView.prototype.setUpCountryFilter = function() {
     this.countryFilter = evt.detail;
     this.container.nextElementSibling.innerHTML = "";
   });
+};
+
+CitiesInputView.prototype.prepareCitiesFiltered = function(evt) {
+
+  const input = evt.target;
+  const filter = input.value.toUpperCase();
+  const filteredCities = [];
+
+  if(filter.length > 1 || (this.countryFilter !== 'All' && filter.length > 0)) {
+    this.citiesData.forEach((city) => {
+        if (this.countryFilter === 'All') {
+      if(city.name.toUpperCase().indexOf(filter) === 0) {
+        filteredCities.push(city);
+      };
+    } else {
+        if(this.countryFilter === city.country && city.name.toUpperCase().indexOf(filter) === 0) {
+            filteredCities.push(city);
+        };
+      };
+    });
+  };
+  PubSub.publish('CityInputView:cities-filtered', filteredCities);
 };
 
 module.exports = CitiesInputView;
