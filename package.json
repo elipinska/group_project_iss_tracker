@@ -1,12 +1,11 @@
 {
-  "name": "project_experiments",
+  "name": "iss_tracker",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -w",
-    "server:dev": "nodemon server/server.js"
+    "build": "webpack -w"
   },
   "keywords": [],
   "author": "",
@@ -14,11 +13,9 @@
   "dependencies": {
     "cities.json": "^1.1.2",
     "countries-list": "^2.3.2",
-    "express": "^4.16.3",
     "leaflet": "^1.3.1"
   },
   "devDependencies": {
-    "nodemon": "^1.17.5",
     "webpack": "^4.10.2",
     "webpack-cli": "^2.1.4"
   }
