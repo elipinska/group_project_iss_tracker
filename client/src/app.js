@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
     citySelectionFormView.bindEvents();
 
     const cityListViewContainer = document.querySelector('#cities-list');
-    const cityListView = new CityListView (cityListViewContainer);
-    cityListView.receiveData();
+    const cityListView = new CityListView(cityListViewContainer);
+    cityListView.bindEvents();
 
     const citiesData = new CitiesData();
     citiesData.getData();
