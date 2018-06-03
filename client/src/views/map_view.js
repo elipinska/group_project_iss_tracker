@@ -1,5 +1,5 @@
+const PubSub = require('../helpers/pub_sub.js');
 const leaflet = require('leaflet');
-
 
 const MapView = function (mapDiv, coords, zoomLevel) {
   this.mapDiv = mapDiv;
@@ -25,6 +25,23 @@ MapView.prototype.setMarker = function(coords) {
 
 MapView.prototype.removeLastMarker = function() {
 this.leafletMap.removeLayer(this.markers.pop());
+}
+
+MapView.prototype.bindEvents = function () {
+  this.setListenerForCityMarkers();
+  this.setListenerForRemoveCityMarkers();
+};
+
+MapView.prototype.setListenerForCityMarkers = function() {
+  PubSub.subscribe('CityView:set-city-marker', (evt) => {
+    this.setMarker(evt.detail);
+  });
+}
+
+MapView.prototype.setListenerForRemoveCityMarkers = function() {
+  PubSub.subscribe('CityView:remove-city-marker', (evt) => {
+    this.removeLastMarker();
+  });
 }
 
 module.exports = MapView;

@@ -20,13 +20,13 @@ CityListView.prototype.createCityViews = function () {
   this.clearElement();
   this.cities.forEach((city) => {
         const cityView = this.createCityView(city);
-
   });
 };
 
 CityListView.prototype.createCityView = function (city) {
   const cityView = new CityView(city);
-  this.container.appendChild (cityView.renderCity());
+  const cityLi = cityView.renderCity();
+  this.container.appendChild (cityLi);
   return cityView;
 };
 

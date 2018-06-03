@@ -7,8 +7,31 @@ const CityView = function (city) {
 
 CityView.prototype.renderCity = function () {
   const newLi = document.createElement('li');
-  newLi.textContent = `${this.city.name}, longitude: ${this.city.lng}, latitude: ${this.city.lat}`;
+  newLi.textContent = `${this.city.name} (${this.city.fullCountryName}), longitude: ${this.city.lng}, latitude: ${this.city.lat}`;
+
+  this.setAddMapMarkerListenerToListItem(newLi);
+  this.setRemoveMapMarkerListenerToListItem(newLi);
+  this.addOnClickListenerToListItem(newLi);
+
   return newLi;
+};
+
+CityView.prototype.setAddMapMarkerListenerToListItem = function(listElement) {
+  listElement.addEventListener('mouseover', (evt) => {
+    PubSub.publish('CityView:set-city-marker', [this.city.lat, this.city.lng]);
+  });
+};
+
+CityView.prototype.setRemoveMapMarkerListenerToListItem = function(listElement) {
+  listElement.addEventListener('mouseout', (evt) => {
+    PubSub.publish('CityView:remove-city-marker', 'hello');
+  });
+};
+
+CityView.prototype.addOnClickListenerToListItem = function(listElement) {
+  listElement.addEventListener('click', (evt) => {
+    listElement.parentElement.previousElementSibling.value = this.city.name;
+  });
 };
 
 module.exports = CityView;

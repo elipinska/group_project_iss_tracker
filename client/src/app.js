@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const zoomLevel = 1;
     const mapView = new MapView(mapDiv, coords, zoomLevel);
     mapView.init();
+    mapView.bindEvents();
 
     const countryDropdown = document.getElementById('country-dropdown');
     const countrySelectView = new CountrySelectView(countryDropdown);
@@ -31,11 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityListView = new CityListView (cityListViewContainer);
     cityListView.receiveData();
 
+    const citiesData = new CitiesData();
+    citiesData.getData();
+    citiesData.setCountryNames();
 
     const countriesData = new CountriesData();
     countriesData.getData();
-
-    const citiesData = new CitiesData();
-    citiesData.getData();
 
 });
