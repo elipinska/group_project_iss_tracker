@@ -39,8 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     passTimesView.bindEvents();
 
     const issData = new ISSData('/iss-data/current-position');
-    // setInterval(console.log('Im getting called'), 5000);
-    setInterval(function(){ issData.getCurrentISSPosition(); }, 1000);
+    setInterval(function(){ issData.getCurrentISSPosition(); }, 5000);
 
 
     const citiesData = new CitiesData();

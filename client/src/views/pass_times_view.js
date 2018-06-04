@@ -19,7 +19,6 @@ PassTimesView.prototype.bindEvents = function () {
   });
 
   PubSub.subscribe('ISSData:data-ready', (evt) => {
-    console.log(evt.detail);
     this.issResponse = evt.detail;
     this.render();
 
