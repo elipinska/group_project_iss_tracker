@@ -31,12 +31,10 @@ PassTimesView.prototype.render = function() {
   this.createHTMLElement('h2', 'city-name', this.city.name);
   this.createHTMLElement('p', 'country', this.city.fullCountryName);
 
-  const time = new Date(this.issResponse.response[0].risetime*1000);
-
-  this.createHTMLElement('p', 'iss-pass-time-1', time);
-
-
-  console.log(time);
+  this.issResponse.response.forEach((passTime) => {
+    const time = new Date(passTime.risetime * 1000);
+    this.createHTMLElement('p', 'iss-pass-time-1', time);
+  });
 };
 
 PassTimesView.prototype.createHTMLElement = function(type, id, text) {
