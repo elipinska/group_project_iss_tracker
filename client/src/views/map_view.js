@@ -8,6 +8,7 @@ const MapView = function (mapDiv, coords, zoomLevel) {
   this.leafletMap = null;
   this.hoverMarkers = []
   this.clickedCityMarker = null;
+  this.issMarker = null;
 }
 
 MapView.prototype.init = function () {
@@ -24,10 +25,23 @@ MapView.prototype.bindEvents = function () {
   this.setListenerForCityMarkers();
   this.setListenerForRemoveCityMarkers();
   this.setPopUpListener();
+  this.setListenerForISSCurrentPosition();
 };
 
 MapView.prototype.setMarker = function(coords, isClicked) {
-  const newMarker = leaflet.marker(coords, {riseOnHover: true}).addTo(this.leafletMap);
+  const issIcon = L.icon({
+    iconUrl: 'images/iss.png',
+    // shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 35], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+
+  const newMarker = leaflet.marker(coords, {riseOnHover: true, icon: issIcon}).addTo(this.leafletMap);
 
   if (isClicked) {
     if (this.clickedCityMarker) {
@@ -64,6 +78,18 @@ MapView.prototype.setPopUpListener = function() {
     const marker = this.setMarker([evt.detail.lat, evt.detail.lng], true);
     marker.bindPopup(`${evt.detail.name}`).openPopup();
   });
+};
+
+MapView.prototype.setListenerForISSCurrentPosition = function () {
+    PubSub.subscribe('ISSData:current-position', (evt) => {
+
+      if (this.issMarker) {
+        this.leafletMap.removeLayer(this.issMarker);
+      }
+
+      const currentCoords = [evt.detail.latitude, evt.detail.longitude];
+      this.issMarker = this.setMarker(currentCoords, false);
+    });
 };
 
 module.exports = MapView;

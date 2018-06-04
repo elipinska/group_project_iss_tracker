@@ -11,4 +11,10 @@ ISSData.prototype.getData = function () {
     .then(data => PubSub.publish('ISSData:data-ready', data));
 };
 
+ISSData.prototype.getCurrentISSPosition = function () {
+  fetch(this.url)
+    .then(res => res.json())
+    .then(data => PubSub.publish('ISSData:current-position', data.iss_position));
+};
+
 module.exports = ISSData;

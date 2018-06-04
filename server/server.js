@@ -21,3 +21,11 @@ app.get(`/iss-data/:lat/:lng`, (req, res) => {
     .then(jsonData => jsonData.json())
     .then(data => res.json(data));
 });
+
+app.get(`/iss-data/current-position`, (req, res) => {
+  const url = 'http://api.open-notify.org/iss-now.json';
+
+  fetch(url)
+    .then(jsonData => jsonData.json())
+    .then(data => res.json(data));
+});
