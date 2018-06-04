@@ -29,19 +29,8 @@ MapView.prototype.bindEvents = function () {
 };
 
 MapView.prototype.setMarker = function(coords, isClicked) {
-  const issIcon = L.icon({
-    iconUrl: 'images/iss.png',
-    // shadowUrl: 'leaf-shadow.png',
 
-    iconSize:     [38, 35], // size of the icon
-    // shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-});
-
-
-  const newMarker = leaflet.marker(coords, {riseOnHover: true, icon: issIcon}).addTo(this.leafletMap);
+  const newMarker = leaflet.marker(coords, {riseOnHover: true}).addTo(this.leafletMap);
 
   if (isClicked) {
     if (this.clickedCityMarker) {
@@ -53,6 +42,23 @@ MapView.prototype.setMarker = function(coords, isClicked) {
   }
   return newMarker;
 }
+
+MapView.prototype.createISSMarker = function(coords) {
+  const issIcon = L.icon({
+    iconUrl: 'images/iss.png',
+    // shadowUrl: 'leaf-shadow.png',
+
+    iconSize:     [38, 35], // size of the icon
+    // shadowSize:   [50, 64], // size of the shadow
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    shadowAnchor: [4, 62],  // the same for the shadow
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+  });
+
+    const newISSMarker = leaflet.marker(coords, {riseOnHover: true, icon: issIcon}).addTo(this.leafletMap);
+
+    return newISSMarker;
+};
 
 
 MapView.prototype.removeLastHoverMarker = function() {
@@ -81,15 +87,15 @@ MapView.prototype.setPopUpListener = function() {
 };
 
 MapView.prototype.setListenerForISSCurrentPosition = function () {
-    PubSub.subscribe('ISSData:current-position', (evt) => {
+  PubSub.subscribe('ISSData:current-position', (evt) => {
 
-      if (this.issMarker) {
-        this.leafletMap.removeLayer(this.issMarker);
-      }
+    if (this.issMarker) {
+      this.leafletMap.removeLayer(this.issMarker);
+    }
 
-      const currentCoords = [evt.detail.latitude, evt.detail.longitude];
-      this.issMarker = this.setMarker(currentCoords, false);
-    });
+    const currentCoords = [evt.detail.latitude, evt.detail.longitude];
+    this.issMarker = this.createISSMarker(currentCoords, false);
+  });
 };
 
 module.exports = MapView;
