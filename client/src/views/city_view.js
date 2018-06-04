@@ -33,7 +33,7 @@ CityView.prototype.setRemoveMapMarkerListenerToListItem = function() {
 CityView.prototype.addOnClickListenerToListItem = function() {
   this.listElement.addEventListener('click', (evt) => {
     this.listElement.parentElement.previousElementSibling.value = this.city.name;
-    PubSub.publish('CityView:city-selected')
+    PubSub.publish('CityView:city-selected', this.city);
   });
 };
 

@@ -7,6 +7,7 @@ const MapView = function (mapDiv, coords, zoomLevel) {
   this.zoomLevel = zoomLevel;
   this.leafletMap = null;
   this.markers = []
+  this.protectedMarkers = [];
 }
 
 MapView.prototype.init = function () {
@@ -18,10 +19,17 @@ MapView.prototype.init = function () {
     .setView(this.coords, this.zoomLevel);
 }
 
-MapView.prototype.setMarker = function(coords) {
-  const newMarker = leaflet.marker(coords).addTo(this.leafletMap);
-  this.markers.push(newMarker);
+MapView.prototype.setMarker = function(coords, isProtected) {
+  const newMarker = leaflet.marker(coords, {riseOnHover: true}).addTo(this.leafletMap);
+
+  if (isProtected) {
+    this.protectedMarkers.push(newMarker);
+  } else {
+    this.markers.push(newMarker);
+  }
+  return newMarker;
 }
+
 
 MapView.prototype.removeLastMarker = function() {
   if (this.markers.length > 0) {
@@ -32,11 +40,12 @@ MapView.prototype.removeLastMarker = function() {
 MapView.prototype.bindEvents = function () {
   this.setListenerForCityMarkers();
   this.setListenerForRemoveCityMarkers();
+  this.setPopUpListener();
 };
 
 MapView.prototype.setListenerForCityMarkers = function() {
   PubSub.subscribe('CityView:mouse-over-city', (evt) => {
-    this.setMarker(evt.detail);
+    this.setMarker(evt.detail, false);
   });
 }
 
@@ -45,5 +54,12 @@ MapView.prototype.setListenerForRemoveCityMarkers = function() {
     this.removeLastMarker();
   });
 }
+
+MapView.prototype.setPopUpListener = function() {
+  PubSub.subscribe('CityView:city-selected', (evt) => {
+    const marker = this.setMarker([evt.detail.lat, evt.detail.lng], true);
+    marker.bindPopup(`${evt.detail.name} (${evt.detail.country})`).openPopup();
+  });
+};
 
 module.exports = MapView;

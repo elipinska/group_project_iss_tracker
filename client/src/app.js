@@ -5,6 +5,7 @@ const CountrySelectView = require('./views/country_select_view.js');
 const CitiesInputView = require('./views/cities_input_view.js');
 const CitySelectionFormView = require('./views/city_selection_form_view.js');
 const CityListView = require('./views/city_list_view.js');
+const PassTimesView = require('./views/pass_times_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -31,6 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const cityListViewContainer = document.querySelector('#cities-list');
     const cityListView = new CityListView(cityListViewContainer);
     cityListView.bindEvents();
+
+    const passTimesContainer = document.querySelector('#pass-times');
+    const passTimesView = new PassTimesView(passTimesContainer);
+    passTimesView.bindEvents();
 
     const citiesData = new CitiesData();
     citiesData.getData();
