@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const ISSData = require('../models/iss_data.js')
 
 const PassTimesView = function(container) {
   this.container = container;
@@ -9,6 +10,10 @@ PassTimesView.prototype.bindEvents = function () {
   PubSub.subscribe('CityView:city-selected', (evt) => {
     this.city = evt.detail;
     this.render();
+
+    const issData = new ISSData("http://api.open-notify.org/iss-pass.json?lat=30&lon=40");
+    issData.getData();
+
   });
 };
 
