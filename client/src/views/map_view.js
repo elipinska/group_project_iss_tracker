@@ -15,8 +15,8 @@ MapView.prototype.init = function () {
   const openStreetMapTileLayer = new leaflet.TileLayer(openStreetMapUrl);
 
   this.leafletMap = leaflet.map(this.mapDiv)
-    .addLayer(openStreetMapTileLayer)
-    .setView(this.coords, this.zoomLevel);
+  .addLayer(openStreetMapTileLayer)
+  .setView(this.coords, this.zoomLevel);
 }
 
 
@@ -62,7 +62,7 @@ MapView.prototype.setListenerForRemoveCityMarkers = function() {
 MapView.prototype.setPopUpListener = function() {
   PubSub.subscribe('CityView:city-selected', (evt) => {
     const marker = this.setMarker([evt.detail.lat, evt.detail.lng], true);
-    marker.bindPopup(`${evt.detail.name} (${evt.detail.country})`).openPopup();
+    marker.bindPopup(`${evt.detail.name}`).openPopup();
   });
 };
 
