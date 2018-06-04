@@ -11,7 +11,10 @@ PassTimesView.prototype.bindEvents = function () {
     this.city = evt.detail;
     this.render();
 
-    const issData = new ISSData('/iss-data');
+    const lng = this.city.lng;
+    const lat = this.city.lat;
+
+    const issData = new ISSData(`/iss-data/${lat}/${lng}`);
     issData.getData();
   });
 

@@ -13,8 +13,9 @@ app.listen(3000, function () {
   console.log(`Listening on port ${ this.address().port }`);
 });
 
-app.get('/iss-data', (req, res) => {
-  const url = 'http://api.open-notify.org/iss-pass.json?lat=30&lon=40';
+app.get(`/iss-data/:lat/:lng`, (req, res) => {
+  const url =
+ `http://api.open-notify.org/iss-pass.json?lat=${req.params.lat}&lon=${req.params.lng}`;
 
   fetch(url)
     .then(jsonData => jsonData.json())
