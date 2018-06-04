@@ -29,3 +29,11 @@ app.get(`/iss-data/current-position`, (req, res) => {
     .then(jsonData => jsonData.json())
     .then(data => res.json(data));
 });
+
+app.get(`/iss-data/astronauts`, (req, res) => {
+  const url = 'http://api.open-notify.org/astros.json';
+
+  fetch(url)
+    .then(jsonData => jsonData.json())
+    .then(data => res.json(data));
+});

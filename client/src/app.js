@@ -7,6 +7,7 @@ const CitySelectionFormView = require('./views/city_selection_form_view.js');
 const CityListView = require('./views/city_list_view.js');
 const PassTimesView = require('./views/pass_times_view.js');
 const ISSData = require('./models/iss_data.js');
+const AstronautView = require('./views/astronaut_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -40,6 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const issData = new ISSData('/iss-data/current-position');
     setInterval(function(){ issData.getCurrentISSPosition(); }, 5000);
+
+    const issDataPeople = new ISSData('/iss-data/astronauts');
+    issDataPeople.getAstronautsInSpace();
+
+    const peepsInSpace = document.querySelector('#people-in-space');
+    const astronautView = new AstronautView(peepsInSpace);
+    astronautView.bindEvents();
 
 
     const citiesData = new CitiesData();

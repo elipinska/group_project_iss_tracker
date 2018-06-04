@@ -17,4 +17,10 @@ ISSData.prototype.getCurrentISSPosition = function () {
     .then(data => PubSub.publish('ISSData:current-position', data.iss_position));
 };
 
+ISSData.prototype.getAstronautsInSpace = function () {
+  fetch(this.url)
+    .then(res => res.json())
+    .then(data => PubSub.publish('ISSData:current-people-in-space', data.people));
+};
+
 module.exports = ISSData;
