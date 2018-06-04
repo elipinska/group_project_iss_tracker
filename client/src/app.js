@@ -8,8 +8,8 @@ const CitySelectionFormView = require('./views/city_selection_form_view.js');
 document.addEventListener('DOMContentLoaded', () => {
 
   const mapDiv = document.getElementById('mapid');
-    const coords = [0, 0];
-    const zoomLevel = 1;
+    const coords = [33,0];
+    const zoomLevel = 2;
     const mapView = new MapView(mapDiv, coords, zoomLevel);
     mapView.init();
 
