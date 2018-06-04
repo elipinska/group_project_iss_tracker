@@ -6,11 +6,9 @@ const ISSData = function(url) {
 }
 
 ISSData.prototype.getData = function () {
-  const request = new Request(this.url);
-  request.get()
-    .then((issData) => {
-      console.log(issData);
-    });
+  fetch(this.url)
+    .then(res => res.json())
+    .then(data => PubSub.publish('ISSData:data-ready', data));
 };
 
 module.exports = ISSData;

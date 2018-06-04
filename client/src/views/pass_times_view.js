@@ -11,9 +11,12 @@ PassTimesView.prototype.bindEvents = function () {
     this.city = evt.detail;
     this.render();
 
-    const issData = new ISSData("http://api.open-notify.org/iss-pass.json?lat=30&lon=40");
+    const issData = new ISSData('/iss-data');
     issData.getData();
+  });
 
+  PubSub.subscribe('ISSData:data-ready', (evt) => {
+    console.log(evt.detail);
   });
 };
 
