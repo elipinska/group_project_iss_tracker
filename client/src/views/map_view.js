@@ -48,14 +48,12 @@ MapView.prototype.createISSMarker = function(coords) {
     iconUrl: 'images/iss.png',
     // shadowUrl: 'leaf-shadow.png',
 
-    iconSize:     [38, 35], // size of the icon
-    // shadowSize:   [50, 64], // size of the shadow
-    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-    shadowAnchor: [4, 62],  // the same for the shadow
-    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    iconSize:     [32, 32], // size of the icon
   });
 
     const newISSMarker = leaflet.marker(coords, {riseOnHover: true, icon: issIcon}).addTo(this.leafletMap);
+
+
 
     return newISSMarker;
 };
@@ -95,6 +93,14 @@ MapView.prototype.setListenerForISSCurrentPosition = function () {
 
     const currentCoords = [evt.detail.latitude, evt.detail.longitude];
     this.issMarker = this.createISSMarker(currentCoords, false);
+
+
+//     const ISScircle = L.circle(currentCoords, {
+//     color: 'red',
+//     fillColor: '#f03',
+//     fillOpacity: 0.5,
+//     radius: 500
+// }).addTo(mymap);
   });
 };
 
