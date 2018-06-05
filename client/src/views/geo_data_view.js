@@ -43,6 +43,7 @@ GeoDataView.prototype.render = function (wikiPage) {
 };
 
 GeoDataView.prototype.renderEmptyQuery = function () {
+  this.clearContainer();
   this.createHTMLElement('h2', 'wiki-page', "Nothing interesting below!")
 
 };
