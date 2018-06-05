@@ -1,12 +1,48 @@
+body {
+  background-color: #aad4e5;
+}
+
 #mapid {
-  width: 60vw;
-  height: 480px;
+  width: 50vw;
+  height: 450px;
   margin: auto;
+  border-radius: 25px;
+    border: 2px solid black;
+    padding: 20px;
+    width: 50vw;
+    height: 450px;
+    justify-content: center;
  }
 
 form {
   width: 70vw;
   margin: auto;
+}
+
+.astronauts {
+  font-family: sans-serif;
+  position: absolute;
+  left: 10;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+table {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+table thead {
+  background-color: blue;
+}
+
+.iss-live {
+  position: absolute;
+  left: 10;
+  right: 0;
+  top: 1;
+
 }
 
 #cities-input {
