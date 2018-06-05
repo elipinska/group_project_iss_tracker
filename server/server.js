@@ -37,3 +37,12 @@ app.get(`/iss-data/astronauts`, (req, res) => {
     .then(jsonData => jsonData.json())
     .then(data => res.json(data));
 });
+
+app.get(`/geo-data/:lat/:lng`, (req, res) => {
+  const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&prop=coordinates%7Cpageimages%7Cpageterms%7Cextracts&generator=geosearch&colimit=50&piprop=thumbnail&pithumbsize=144&pilimit=50&wbptterms=description&exsentences=3&exintro=1&explaintext=1&ggscoord=${req.params.lat}%7C${req.params.lng}&ggsradius=10000&ggslimit=10`;
+
+  fetch(url)
+    .then(jsonData => jsonData.json())
+    .then(data => res.json(data));
+
+});

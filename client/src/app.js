@@ -1,5 +1,6 @@
 const CitiesData = require('./models/cities_data.js');
 const CountriesData = require('./models/countries_data.js');
+const GeoData = require('./models/geo_data.js');
 const MapView = require('./views/map_view.js');
 const CountrySelectView = require('./views/country_select_view.js');
 const CitiesInputView = require('./views/cities_input_view.js');
@@ -7,6 +8,7 @@ const CityListView = require('./views/city_list_view.js');
 const PassTimesView = require('./views/pass_times_view.js');
 const ISSData = require('./models/iss_data.js');
 const AstronautView = require('./views/astronaut_view.js');
+const GeoDataView = require('./views/geo_data_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -44,6 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const astronautView = new AstronautView(peepsInSpace);
     astronautView.bindEvents();
 
+    const geoDataContainer = document.querySelector('#geo-data');
+    const geoDataView = new GeoDataView(geoDataContainer);
+    geoDataView.bindEvents();
+
+    const geoData = new GeoData();
+    geoData.bindEvents();
 
     const citiesData = new CitiesData();
     citiesData.getData();
@@ -51,5 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const countriesData = new CountriesData();
     countriesData.getData();
+
 
 });
