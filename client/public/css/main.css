@@ -64,15 +64,16 @@ table thead {
 
 #info-row {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-#pass-times, #geo-data {
+#pass-times {
   width: 400px;
 }
 
 #geo-data {
   display: flex;
+  width: 600px;
 }
 
 #cities-input {
@@ -122,4 +123,10 @@ table thead {
   font-size: 16px;
   height: 30px;
   width: 15vw;
+}
+
+#thumbnail {
+  align-self: center;
+  margin-right: 5px;
+
 }

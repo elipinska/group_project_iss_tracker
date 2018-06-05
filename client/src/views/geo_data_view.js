@@ -34,21 +34,24 @@ GeoDataView.prototype.render = function (wikiPage) {
   this.clearContainer();
 
   if (wikiPage.thumbnail) {
-    this.createHTMLElement('img', 'thumbnail', wikiPage.thumbnail.source);
+    this.createHTMLElement('img', 'thumbnail', wikiPage.thumbnail.source, this.container);
   }
 
-  this.createHTMLElement('h2', 'wiki-page-title', wikiPage.title);
-  this.createHTMLElement('p', 'wiki-page-extract', wikiPage.extract);
+  const innerDiv = document.createElement('div');
+  this.container.appendChild(innerDiv);
+
+  this.createHTMLElement('h2', 'wiki-page-title', wikiPage.title, innerDiv);
+  this.createHTMLElement('p', 'wiki-page-extract', wikiPage.extract, innerDiv);
 
 };
 
 GeoDataView.prototype.renderEmptyQuery = function () {
   this.clearContainer();
-  this.createHTMLElement('h2', 'wiki-page', "Nothing interesting below!")
+  this.createHTMLElement('h2', 'wiki-page', "Nothing interesting below!", this.container)
 
 };
 
-GeoDataView.prototype.createHTMLElement = function(type, id, text) {
+GeoDataView.prototype.createHTMLElement = function(type, id, text, parentContainer) {
   const htmlElement = document.createElement(type);
   htmlElement.id = id;
 
@@ -58,7 +61,7 @@ GeoDataView.prototype.createHTMLElement = function(type, id, text) {
   htmlElement.textContent = text;
 }
 
-  this.container.appendChild(htmlElement);
+  parentContainer.appendChild(htmlElement);
 };
 
 GeoDataView.prototype.clearContainer = function() {
