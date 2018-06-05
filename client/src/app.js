@@ -14,7 +14,7 @@ const WikiForISSLocationView = require('./views/wiki_for_iss_location_view.js');
 document.addEventListener('DOMContentLoaded', () => {
 
   const mapDiv = document.getElementById('mapid');
-    const coords = [0, 0];
+    const coords = [30, 0];
     const zoomLevel = 2;
     const mapView = new MapView(mapDiv, coords, zoomLevel);
     mapView.init();

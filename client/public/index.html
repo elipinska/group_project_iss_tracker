@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Share+Tech" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
   crossorigin=""/>
@@ -11,42 +12,50 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <h1>ISS Tracker</h1>
-  <div class="row">
-    <div id="mapid"></div>
 
-    <table>
-      <thead>
-        <tr>
-          <th><h3>People in Space<h3></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><div id="people-in-space"></div>
-              <td>
+  <div class="top-row">
+    <div><h1>ISS Tracker</h1>
+      <div id="mapid"></div></div>
+
+      <div id="side-bar">
+        <table>
+          <thead>
+            <tr>
+              <th><h3>People in Space<h3></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><div id="people-in-space"></div>
+                </td>
               </tr>
             </tbody>
           </table>
+
+          <div class="iss-live">
+            <iframe width="300" height="270" src="https://www.youtube.com/embed/qyEzsAy4qeU" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe></div>
+
+          </div>
         </div>
 
-        <div class="row">
-          <select id="country-dropdown">
-            <option selected>All</option>
-          </select>
-          <input type="search" id="cities-input" placeholder="Search for city...">
-          <ul id="cities-list">
-          </ul>
+        <div class="b-row">
+          <div id="search-box">
+            <select id="country-dropdown">
+              <option selected>All</option>
+            </select>
+            <input type="search" id="cities-input" placeholder="Search for city...">
+            <ul id="cities-list">
+            </ul>
+          </div>
+          <button id="wiki-for-iss-location">Wiki for current location</button>
+
         </div>
-        <button id="wiki-for-iss-location">Wiki for current location</button>
 
-        <div id="pass-times"></div>
 
-        <div id="geo-data">
-        This is where GeoData goes</div>
+        <div id="info-row">
+          <div id="pass-times"></div>
 
-        <div class="iss-live">
-          <iframe width="480" height="270" src="https://www.ustream.tv/embed/17074538?html5ui" scrolling="no" allowfullscreen webkitallowfullscreen frameborder="0" style="border: 0 none transparent;"></iframe></div>
-
-        </body>
-        </html>
+          <div id="geo-data"></div>
+        </div>
+      </body>
+      </html>

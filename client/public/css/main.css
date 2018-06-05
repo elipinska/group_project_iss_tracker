@@ -1,22 +1,36 @@
 body {
   background-color: #aad4e5;
+  font-family: 'Share Tech', sans-serif;
 }
 
 #mapid {
-  width: 50vw;
+  width: 60vw;
   height: 450px;
   /* margin: auto; */
   border-radius: 25px;
     border: 2px solid black;
     padding: 20px;
-    width: 50vw;
+    width: 60vw;
     height: 450px;
     justify-content: center;
  }
 
-.row {
+.top-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.b-row {
+margin-left: 70px;
+margin-top: 30px;
+display: flex;
+justify-content: space-between;
+}
+
+#wiki-for-iss-location {
+  max-width: 150px;
+  max-height: 50px;
+  margin-right: 130px;
 }
 
 form {
@@ -24,30 +38,41 @@ form {
   margin: auto;
 }
 
-.astronauts {
-  font-family: sans-serif;
-  /* position: absolute; */
-  /* left: 10;
-  right: 0;
-  bottom: 0;
-  top: 0; */
-}
-
 table {
   border: 2px solid black;
   border-collapse: collapse;
+  padding: 10px;
+  margin-top: 77px;
+}
+
+table td {
+  padding: 30px;
 }
 
 table thead {
   background-color: blue;
 }
 
-.iss-live {
-  position: absolute;
-  left: 10;
-  right: 0;
-  top: 1;
+#side-bar {
+  display: flex;
+  flex-direction: column;
+}
 
+.iss-live {
+  margin-top: 10px;
+}
+
+#info-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+#pass-times, #geo-data {
+  width: 400px;
+}
+
+#geo-data {
+  display: flex;
 }
 
 #cities-input {
@@ -55,7 +80,7 @@ table thead {
     background-repeat: no-repeat; /* Do not repeat the icon image */
     height: 32px;
     margin-top: 10px;
-    width: 50vw; /* Full-width */
+    width: 46vw;
     font-size: 16px; /* Increase font-size */
     padding: 12px 20px 12px 40px; /* Add some padding */
     border: 1px solid #ddd; /* Add a grey border */
@@ -70,10 +95,11 @@ table thead {
 }
 
 #cities-list {
-  height:200px;
-  width:73vw;
+  height:180px;
+  width:61vw;
   overflow:hidden;
   overflow-y:scroll;
+  /* display: none; */
 }
 
 #cities-list li, #countries-list li {

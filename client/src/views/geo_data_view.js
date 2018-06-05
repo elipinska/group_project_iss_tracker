@@ -9,12 +9,11 @@ GeoDataView.prototype.bindEvents = function () {
 
     if (evt.detail.query) {
       const randomWikiPage = this.returnRandomWikiPage(evt.detail.query.pages);
-      console.log(evt.detail);
+      console.log(randomWikiPage);
 
       this.render(randomWikiPage);
     } else {
       this.renderEmptyQuery();
-      console.log(evt.detail);
     }
 
   });
@@ -33,13 +32,17 @@ GeoDataView.prototype.returnRandomWikiPage = function (data) {
 
 GeoDataView.prototype.render = function (wikiPage) {
   this.clearContainer();
+
+  if (wikiPage.thumbnail) {
+    this.createHTMLElement('img', 'thumbnail', wikiPage.thumbnail.source);
+  }
+
   this.createHTMLElement('h2', 'wiki-page-title', wikiPage.title);
   this.createHTMLElement('p', 'wiki-page-extract', wikiPage.extract);
 
 };
 
 GeoDataView.prototype.renderEmptyQuery = function () {
-  this.clearContainer();
   this.createHTMLElement('h2', 'wiki-page', "Nothing interesting below!")
 
 };
@@ -47,7 +50,12 @@ GeoDataView.prototype.renderEmptyQuery = function () {
 GeoDataView.prototype.createHTMLElement = function(type, id, text) {
   const htmlElement = document.createElement(type);
   htmlElement.id = id;
+
+  if (type === 'img') {
+  htmlElement.src = text;
+} else {
   htmlElement.textContent = text;
+}
 
   this.container.appendChild(htmlElement);
 };
