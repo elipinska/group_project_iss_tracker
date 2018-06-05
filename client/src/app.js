@@ -9,6 +9,7 @@ const PassTimesView = require('./views/pass_times_view.js');
 const ISSData = require('./models/iss_data.js');
 const AstronautView = require('./views/astronaut_view.js');
 const GeoDataView = require('./views/geo_data_view.js');
+const WikiForISSLocationView = require('./views/wiki_for_iss_location_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -36,7 +37,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const passTimesView = new PassTimesView(passTimesContainer);
     passTimesView.bindEvents();
 
+    const wikiForISSLocationContainer = document.querySelector('#wiki-for-iss-location');
+    const wikiForISSLocationView = new WikiForISSLocationView(wikiForISSLocationContainer);
+    wikiForISSLocationView.bindEvents();
+
     const issData = new ISSData('/iss-data/current-position');
+    issData.bindEvents();
     setInterval(function(){ issData.getCurrentISSPosition(); }, 5000);
 
     const issDataPeople = new ISSData('/iss-data/astronauts');

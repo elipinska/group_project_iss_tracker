@@ -6,10 +6,17 @@ const GeoDataView = function (container) {
 
 GeoDataView.prototype.bindEvents = function () {
   PubSub.subscribe('GeoData:data-ready', (evt) => {
-    const randomWikiPage = this.returnRandomWikiPage(evt.detail.query.pages);
-    console.log(randomWikiPage);
 
-    this.render(randomWikiPage);
+    if (evt.detail.query) {
+      const randomWikiPage = this.returnRandomWikiPage(evt.detail.query.pages);
+      console.log(evt.detail);
+
+      this.render(randomWikiPage);
+    } else {
+      this.renderEmptyQuery();
+      console.log(evt.detail);
+    }
+
   });
 };
 
@@ -28,6 +35,12 @@ GeoDataView.prototype.render = function (wikiPage) {
   this.clearContainer();
   this.createHTMLElement('h2', 'wiki-page-title', wikiPage.title);
   this.createHTMLElement('p', 'wiki-page-extract', wikiPage.extract);
+
+};
+
+GeoDataView.prototype.renderEmptyQuery = function () {
+  this.clearContainer();
+  this.createHTMLElement('h2', 'wiki-page', "Nothing interesting below!")
 
 };
 
