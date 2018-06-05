@@ -3,7 +3,6 @@ const CountriesData = require('./models/countries_data.js');
 const MapView = require('./views/map_view.js');
 const CountrySelectView = require('./views/country_select_view.js');
 const CitiesInputView = require('./views/cities_input_view.js');
-const CitySelectionFormView = require('./views/city_selection_form_view.js');
 const CityListView = require('./views/city_list_view.js');
 const PassTimesView = require('./views/pass_times_view.js');
 const ISSData = require('./models/iss_data.js');
@@ -26,10 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const citiesInputView = new CitiesInputView(citiesInputElement);
     citiesInputView.addOnKeyUpToCitiesInput();
     citiesInputView.bindEvents();
-
-    const citySelectionForm = document.querySelector('#city-selection-form')
-    const citySelectionFormView = new CitySelectionFormView(citySelectionForm);
-    citySelectionFormView.bindEvents();
 
     const cityListViewContainer = document.querySelector('#cities-list');
     const cityListView = new CityListView(cityListViewContainer);
