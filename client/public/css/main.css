@@ -35,13 +35,13 @@ h1 {
 }
 
 #wiki-for-iss-location {
-  width: 200px;
+  width: 300px;
+  font-size: 1.3rem;
   height: 100px;
   margin-top: 20px;
   margin-bottom: 30px;
   background-color: #27536B;
   color: #F1F0F5;
-  font-size: 16px;
   border: 3px outset #1b3d4f;
   padding: 10px;
   font-family: 'Doppio One', sans-serif;
@@ -95,8 +95,12 @@ table thead {
 }
 
 #geo-data {
-  display: flex;
   width: 600px;
+  padding-right: 15px;
+}
+
+#inner-geo-data {
+  display: flex;
 }
 
 #cities-input {
@@ -172,10 +176,11 @@ table thead {
   padding: 0;
 }
 
-
-#geo-data {
-  padding-right: 15px;
+h2#whats-there {
+  margin-bottom: 3px;
 }
+
+
 
 #dragon-icon {
   width: 128px;
