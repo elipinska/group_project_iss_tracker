@@ -13,11 +13,11 @@ const MapView = function (mapDiv, coords, zoomLevel) {
 
 MapView.prototype.init = function () {
 
-  var Esri_WorldImagery = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+  var Esri_WorldImagery = leaflet.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
   	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
   });
 
-var Esri_OceanBasemap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
+var Esri_OceanBasemap = leaflet.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Sources: GEBCO, NOAA, CHS, OSU, UNH, CSUMB, National Geographic, DeLorme, NAVTEQ, and Esri',
 	maxZoom: 13
 });
@@ -54,7 +54,7 @@ MapView.prototype.setMarker = function(coords, isClicked) {
 }
 
 MapView.prototype.createISSMarker = function(coords) {
-  const issIcon = L.icon({
+  const issIcon = leaflet.icon({
     iconUrl: 'images/iss.png',
     // shadowUrl: 'leaf-shadow.png',
 
@@ -105,12 +105,6 @@ MapView.prototype.setListenerForISSCurrentPosition = function () {
     this.issMarker = this.createISSMarker(currentCoords, false);
 
 
-//     const ISScircle = L.circle(currentCoords, {
-//     color: 'red',
-//     fillColor: '#f03',
-//     fillOpacity: 0.5,
-//     radius: 500
-// }).addTo(mymap);
   });
 };
 
