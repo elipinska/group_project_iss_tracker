@@ -3,21 +3,20 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  font-family: 'Share Tech', sans-serif;
+  font-family: 'Doppio One', sans-serif;
   color: #F1F0F5;
 }
 
 h1 {
   color: #F1F0F5;
+  font-size: 2.5rem;
+  font-family: 'Share Tech', sans-serif;
 }
 
 #people-in-space {
   max-width: 150px;
 }
 
-#body {
-  background-color: AliceBlue;
-}
 #icon {
   width: 64px;
   margin-right: 10px;
@@ -51,6 +50,7 @@ h1 {
   font-size: 16px;
   border: 3px outset #1b3d4f;
   padding: 10px;
+  font-family: 'Doppio One', sans-serif;
 }
 
 #wiki-for-iss-location:hover {
@@ -96,6 +96,7 @@ table thead {
 
 #pass-times {
   width: 400px;
+  padding-left: 15px;
 }
 
 #geo-data {
@@ -104,19 +105,18 @@ table thead {
 }
 
 #cities-input {
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
   height: 32px;
   margin-top: 10px;
   width: 46vw;
-  font-size: 16px; /* Increase font-size */
-  padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
-  margin-bottom: 5px; /* Add some space below the input */
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 5px;
 }
 
 #cities-list, #countries-list {
-  /* Remove default list styling */
   list-style-type: none;
   padding: 0;
   margin: 0;
@@ -130,18 +130,18 @@ table thead {
 }
 
 #cities-list li, #countries-list li {
-  border: 1px solid #ddd; /* Add a border to all links */
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6; /* Grey background color */
-  padding: 12px; /* Add some padding */
-  text-decoration: none; /* Remove default text underline */
-  font-size: 18px; /* Increase the font-size */
-  color: black; /* Add a black text color */
-  display: block; /* Make it into a block element to fill the whole list */
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
 }
 
 #cities-list li:hover, #countries-list li:hover{
-  background-color: #eee; /* Add a hover effect to all links, except for headers */
+  background-color: #eee;
   cursor: pointer;
 }
 
@@ -159,12 +159,13 @@ table thead {
 
 #pass-times, #geo-data {
   background-color: #3e7999CC;
-  /* border: 2px solid #3e7999; */
 }
 
-#pass-times {
-  padding-left: 15px;
+#pass-times h2 {
+  background-color: #3e799900;
+  padding: 0;
 }
+
 
 #geo-data {
   padding-right: 15px;

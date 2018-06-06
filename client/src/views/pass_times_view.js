@@ -31,8 +31,8 @@ PassTimesView.prototype.bindEvents = function () {
 
 PassTimesView.prototype.render = function() {
   this.clearContainer();
-  this.createHTMLElement('h2', 'city-name', this.city.name);
-  this.createHTMLElement('p', 'country', this.city.fullCountryName);
+  this.createHTMLElement('h2', 'pass-times', `Upcoming ISS pass times for:`);
+  this.createHTMLElement('h3', 'city-info', `${this.city.name} (${this.city.fullCountryName})`);
 
   this.issResponse.response.forEach((passTime) => {
     const time = new Date(passTime.risetime * 1000);
