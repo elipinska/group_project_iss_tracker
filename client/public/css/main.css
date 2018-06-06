@@ -1,19 +1,34 @@
 body {
-  background-color: #aad4e5;
+  background-image: url("/images/b3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   font-family: 'Share Tech', sans-serif;
+  color: #F1F0F5;
 }
 
+h1 {
+  color: #F1F0F5;
+}
+
+#people-in-space {
+  max-width: 150px;
+}
+
+#body {
+  background-color: AliceBlue;
+}
+#icon {
+  width: 64px;
+  margin-right: 10px;
+}
 #mapid {
   width: 60vw;
   height: 450px;
-  /* margin: auto; */
-  border-radius: 25px;
-    border: 2px solid black;
-    padding: 20px;
-    width: 60vw;
-    height: 450px;
-    justify-content: center;
- }
+  border: 5px ridge #3e7999;
+  padding: 20px;
+  justify-content: center;
+}
 
 .top-row {
   display: flex;
@@ -21,10 +36,10 @@ body {
 }
 
 .b-row {
-margin-left: 70px;
-margin-top: 30px;
-display: flex;
-justify-content: space-between;
+  margin-left: 70px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
 }
 
 #wiki-for-iss-location {
@@ -39,18 +54,20 @@ form {
 }
 
 table {
-  border: 2px solid black;
+  border: 2px solid #3e7999;
+  border-radius: 10px;
   border-collapse: collapse;
   padding: 10px;
-  margin-top: 77px;
+  margin-top: 115px;
 }
 
 table td {
   padding: 30px;
+  background-color: #3e7999CC;
 }
 
 table thead {
-  background-color: blue;
+  background-color: #27536B;
 }
 
 #side-bar {
@@ -65,10 +82,13 @@ table thead {
 #info-row {
   display: flex;
   justify-content: center;
+  color: #F1F0F5;
 }
 
 #pass-times {
   width: 400px;
+
+
 }
 
 #geo-data {
@@ -77,22 +97,22 @@ table thead {
 }
 
 #cities-input {
-    background-position: 10px 12px; /* Position the search icon */
-    background-repeat: no-repeat; /* Do not repeat the icon image */
-    height: 32px;
-    margin-top: 10px;
-    width: 46vw;
-    font-size: 16px; /* Increase font-size */
-    padding: 12px 20px 12px 40px; /* Add some padding */
-    border: 1px solid #ddd; /* Add a grey border */
-    margin-bottom: 5px; /* Add some space below the input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  height: 32px;
+  margin-top: 10px;
+  width: 46vw;
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 5px; /* Add some space below the input */
 }
 
 #cities-list, #countries-list {
-    /* Remove default list styling */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 #cities-list {
@@ -104,19 +124,19 @@ table thead {
 }
 
 #cities-list li, #countries-list li {
-    border: 1px solid #ddd; /* Add a border to all links */
-    margin-top: -1px; /* Prevent double borders */
-    background-color: #f6f6f6; /* Grey background color */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove default text underline */
-    font-size: 18px; /* Increase the font-size */
-    color: black; /* Add a black text color */
-    display: block; /* Make it into a block element to fill the whole list */
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
 }
 
 #cities-list li:hover, #countries-list li:hover{
-    background-color: #eee; /* Add a hover effect to all links, except for headers */
-    cursor: pointer;
+  background-color: #eee; /* Add a hover effect to all links, except for headers */
+  cursor: pointer;
 }
 
 #country-dropdown {
