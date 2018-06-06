@@ -9,7 +9,7 @@ body {
 
 h1 {
   color: #F1F0F5;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-family: 'Share Tech', sans-serif;
 }
 
@@ -156,6 +156,17 @@ table thead {
   background-color: #3e7999CC;
 }
 
+#instructions {
+  align-self: flex-start;
+  background-color: #27536BCC;
+  margin-top: 15px;
+}
+
+#instructions h2 {
+  padding: 3px 10px;
+  margin: 0px;
+}
+
 #pass-times h2 {
   background-color: #3e799900;
   padding: 0;
@@ -172,10 +183,6 @@ table thead {
   margin-right: 15px;
 }
 
-#search-box {
-  margin-top: 20px;
-  align-self: center;
-}
 
 #main-column {
   display: flex;
