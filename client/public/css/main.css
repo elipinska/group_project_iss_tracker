@@ -43,9 +43,18 @@ h1 {
 }
 
 #wiki-for-iss-location {
-  max-width: 150px;
-  max-height: 50px;
+  width: 200px;
+  max-height: 100px;
   margin-right: 130px;
+  background-color: #27536B;
+  color: #F1F0F5;
+  font-size: 16px;
+  border: 3px outset #1b3d4f;
+  padding: 10px;
+}
+
+#wiki-for-iss-location:hover {
+  background-color: #2d5d77;
 }
 
 form {
@@ -55,7 +64,6 @@ form {
 
 table {
   border: 2px solid #3e7999;
-  border-radius: 10px;
   border-collapse: collapse;
   padding: 10px;
   margin-top: 115px;
@@ -64,6 +72,7 @@ table {
 table td {
   padding: 30px;
   background-color: #3e7999CC;
+  max-width: 160px;
 }
 
 table thead {
@@ -87,8 +96,6 @@ table thead {
 
 #pass-times {
   width: 400px;
-
-
 }
 
 #geo-data {
@@ -120,7 +127,6 @@ table thead {
   width:61vw;
   overflow:hidden;
   overflow-y:scroll;
-  /* display: none; */
 }
 
 #cities-list li, #countries-list li {
@@ -147,6 +153,19 @@ table thead {
 
 #thumbnail {
   align-self: center;
-  margin-right: 5px;
+  margin-right: 10px;
 
+}
+
+#pass-times, #geo-data {
+  background-color: #3e7999CC;
+  /* border: 2px solid #3e7999; */
+}
+
+#pass-times {
+  padding-left: 15px;
+}
+
+#geo-data {
+  padding-right: 15px;
 }

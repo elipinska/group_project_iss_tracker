@@ -23,6 +23,10 @@ PassTimesView.prototype.bindEvents = function () {
     this.render();
 
   });
+
+  PubSub.subscribe('WikiForISSLocationView:button-clicked', (evt) => {
+    this.clearContainer();
+  });
 };
 
 PassTimesView.prototype.render = function() {
