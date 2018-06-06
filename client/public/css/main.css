@@ -9,7 +9,7 @@ body {
 
 h1 {
   color: #F1F0F5;
-  font-size: 3rem;
+  font-size: 2.7rem;
   font-family: 'Share Tech', sans-serif;
 }
 
@@ -61,7 +61,7 @@ table {
   border: 2px solid #3e7999;
   border-collapse: collapse;
   padding: 10px;
-  margin-top: 115px;
+  margin-top: 130px;
 }
 
 table td {
@@ -104,7 +104,7 @@ table thead {
   background-repeat: no-repeat;
   height: 32px;
   margin-top: 10px;
-  width: 46vw;
+  width: 45.6vw;
   font-size: 16px;
   padding: 12px 20px 12px 40px;
   border: 1px solid #ddd;

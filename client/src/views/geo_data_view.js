@@ -47,6 +47,7 @@ GeoDataView.prototype.render = function (wikiPage) {
 
 GeoDataView.prototype.renderEmptyQuery = function () {
   this.clearContainer();
+
   this.createHTMLElement('img', 'dragon-icon', '/images/dragon.png', document.querySelector('#pass-times'));
   this.createHTMLElement('h2', 'wiki-page', "Here be dragons!", this.container)
 

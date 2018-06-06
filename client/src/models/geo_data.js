@@ -12,7 +12,6 @@ GeoData.prototype.bindEvents = function () {
 
   PubSub.subscribe('ISSData:current-position-for-button', (evt) => {
       this.url = `/geo-data/${evt.detail.latitude}/${evt.detail.longitude}`;
-      console.log(this.url);
       this.getData();
     });
 }
