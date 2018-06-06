@@ -38,8 +38,10 @@ GeoDataView.prototype.render = function (wikiPage) {
     innerGeoData.id = 'inner-geo-data';
     this.container.appendChild(innerGeoData);
 
+    const passTimes = document.querySelector('#pass-times');
+
   if (wikiPage.thumbnail) {
-    this.createHTMLElement('img', 'thumbnail', wikiPage.thumbnail.source, innerGeoData);
+    this.createHTMLElement('img', 'thumbnail', wikiPage.thumbnail.source, passTimes);
   }
 
   const innerDiv = document.createElement('div');
