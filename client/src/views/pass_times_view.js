@@ -9,6 +9,8 @@ const PassTimesView = function(container) {
 
 PassTimesView.prototype.bindEvents = function () {
   PubSub.subscribe('CityView:city-selected', (evt) => {
+    this.container.style.display = '';
+
     this.city = evt.detail;
 
     const lng = this.city.lng;
@@ -26,6 +28,7 @@ PassTimesView.prototype.bindEvents = function () {
 
   PubSub.subscribe('WikiForISSLocationView:button-clicked', (evt) => {
     this.clearContainer();
+    this.container.style.display = "none";
   });
 };
 

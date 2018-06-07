@@ -32,6 +32,8 @@ GeoDataView.prototype.returnRandomWikiPage = function (data) {
 GeoDataView.prototype.render = function (wikiPage) {
   this.clearContainer();
 
+  this.container.style.padding = '20px';
+
     this.createHTMLElement('h2', 'whats-there', "What's there?", this.container);
 
     const innerGeoData = document.createElement('div');
@@ -54,8 +56,14 @@ GeoDataView.prototype.render = function (wikiPage) {
 GeoDataView.prototype.renderEmptyQuery = function () {
   this.clearContainer();
 
-  this.createHTMLElement('img', 'dragon-icon', '/images/dragon.png', document.querySelector('#pass-times'));
-  this.createHTMLElement('h2', 'wiki-page', "Here be dragons!", this.container)
+  this.container.style.padding = '20px';
+
+  const innerGeoData = document.createElement('div');
+  innerGeoData.id = 'inner-geo-data';
+  this.container.appendChild(innerGeoData);
+
+  this.createHTMLElement('img', 'dragon-icon', '/images/dragon.png', innerGeoData);
+  this.createHTMLElement('h2', 'dragons-here', "Here be dragons!", innerGeoData)
 
 };
 

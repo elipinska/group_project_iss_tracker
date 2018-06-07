@@ -96,11 +96,12 @@ table thead {
 
 #geo-data {
   width: 600px;
-  padding-right: 15px;
 }
 
 #inner-geo-data {
   display: flex;
+  align-items: baseline;
+  justify-content: center;
 }
 
 #cities-input {
@@ -184,8 +185,11 @@ h2#whats-there {
 
 #dragon-icon {
   width: 128px;
-  margin-left: 200px;
-  margin-right: 15px;
+  margin: 15px 25px 15px 0px;
+}
+
+#dragons-here {
+  align-self: flex-start;
 }
 
 
