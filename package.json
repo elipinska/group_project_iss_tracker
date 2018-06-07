@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w",
     "server:dev": "nodemon server/server.js",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "keywords": [],
   "author": "",
