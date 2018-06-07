@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack -w",
-    "server:dev": "nodemon server/server.js"
+    "server:dev": "nodemon server/server.js",
+    "start": "node server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +21,10 @@
     "nodemon": "^1.17.5"
   },
   "devDependencies": {
-    "webpack": "^4.10.2",
+    "webpack": "^4.11.1",
     "webpack-cli": "^2.1.4"
+  },
+  "engines": {
+    "node": "9.7.1"
   }
 }
