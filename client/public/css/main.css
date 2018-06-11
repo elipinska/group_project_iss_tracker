@@ -28,6 +28,10 @@ h1 {
   width: 64px;
   margin: 0px 15px;
 }
+
+#astronaut-icon {
+  width: 150px;
+}
 #mapid {
   width: 60vw;
   height: 450px;
@@ -71,6 +75,7 @@ table {
   padding: 10px;
 }
 
+
 table td {
   padding: 30px;
   background-color: #3e7999CC;
@@ -85,6 +90,43 @@ table thead {
   display: flex;
   flex-direction: column;
 }
+
+@media only screen and (max-width: 1300px) {
+    #people-in-space {
+        font-size: 1.5rem;
+    }
+
+    #side-bar {
+      width: 80vw;
+    }
+
+    td {
+      width: 60%;
+    }
+
+    p#astronaut-person {
+      width: 300px;
+    }
+
+    th {
+     font-size: 2rem;
+    }
+
+    iframe {
+      width: 80vw;
+    }
+
+    #mapid {
+      width: 80vw;
+    }
+
+    #astronaut-icon {
+      width: 200px;
+    }
+
+}
+
+
 
 
 .iss-live {
@@ -101,6 +143,8 @@ table thead {
   width: 400px;
   padding-left: 15px;
 }
+
+
 
 #geo-data {
   width: 600px;
