@@ -4,7 +4,7 @@ Now deployed to Heroku at <a href="https://nasa-iss-tracker.herokuapp.com/" targ
 
 ## Project definition
 
-An interactive educational app built with JavaScript using Node.js, webpack and Express for the server side. It uses positional data from the International Space Station (ISS) as a fun way for users to retrieve educational material about locations around the Earth! Created within an Agile team over the course of a week.
+An interactive educational app built with JavaScript using Node.js, webpack and Express for the server side. It uses positional data from the International Space Station (ISS) as a fun way for users to retrieve educational material about locations around the Earth! Created within a 4-person Agile team over the course of a week.
 
 ## MVP
 * Take user selection of a location and display a prediction of the next time the ISS will be above that location.
