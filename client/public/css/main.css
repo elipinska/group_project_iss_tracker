@@ -8,6 +8,12 @@ body {
   min-height: 100vh;
 }
 
+.main-container {
+  margin: 0px 15px;
+  display: flex;
+  flex-direction: column;
+}
+
 h1 {
   color: #F1F0F5;
   font-size: 2.7rem;
