@@ -229,6 +229,10 @@ table thead {
   padding: 0;
 }
 
+#iss-pass-time-1, #wiki-page-extract {
+  font-size: 1rem;
+}
+
 h2#whats-there {
   margin-bottom: 3px;
 }
