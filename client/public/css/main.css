@@ -124,6 +124,10 @@ table thead {
       width: 180px;
     }
 
+    p#iss-pass-time-1 {
+      font-size: 0.8rem;
+    }
+
 
 }
 
@@ -230,9 +234,6 @@ table thead {
   padding: 0;
 }
 
-p#iss-pass-time-1, p#wiki-page-extract {
-  font-size: 1em;
-}
 
 h2#whats-there {
   margin-bottom: 3px;
