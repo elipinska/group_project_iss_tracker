@@ -24,9 +24,9 @@ h1 {
   max-width: 150px;
 }
 
-#icon {
+#iss-icon {
   width: 64px;
-  margin-right: 10px;
+  margin: 0px 15px;
 }
 #mapid {
   width: 60vw;
@@ -39,6 +39,7 @@ h1 {
 .top-row {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap-reverse;
 }
 
 #wiki-for-iss-location {
@@ -68,7 +69,6 @@ table {
   border: 2px solid #3e7999;
   border-collapse: collapse;
   padding: 10px;
-  margin-top: 130px;
 }
 
 table td {
@@ -85,6 +85,7 @@ table thead {
   display: flex;
   flex-direction: column;
 }
+
 
 .iss-live {
   margin-top: 10px;
