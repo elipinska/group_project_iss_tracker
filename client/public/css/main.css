@@ -5,6 +5,7 @@ body {
   background-size: cover;
   font-family: 'Doppio One', sans-serif;
   color: #F1F0F5;
+  min-height: 100vh;
 }
 
 h1 {
